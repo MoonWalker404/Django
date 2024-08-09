@@ -1,9 +1,16 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 
-# Create your views here.
 def index(request):
-    return HttpResponse("<h1>Это мой первый проект на Django</h1>")
+    data = {
+        'caption': "CatDjango"
+    }
+    return render(request, 'main/index.html', data)
 
 def new(request):
-    return HttpResponse("<h3>Это вторая страница моего проекта на Django</h3>")
+    return render(request, 'main/new.html')
+
+def third(request):
+    return render(request, 'main/third.html')
+
+def fourth(request):
+    return render(request, 'main/fourth.html')

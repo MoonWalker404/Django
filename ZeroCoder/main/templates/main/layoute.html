@@ -1,0 +1,58 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+    <!-- Подключение Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    {% block title %}
+    {% endblock %}
+</head>
+<body>
+
+    <div class="container mt-5">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">CatDjango</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    {% include 'main/menu.html' %}
+                </div>
+            </div>
+        </nav>
+
+        <div class="row">
+            <!-- Sidebar -->
+            <aside class="col-md-3">
+                <div class="card">
+                    <img src="{% static 'main/img/cat.jpg' %}" class="card-img-top" alt="котик на двух лапках" width="150px">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">CatDjango</h5>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Main content -->
+            <main class="col-md-9">
+                <div class="content">
+                    {% block content %}
+                    {% endblock %}
+                </div>
+            </main>
+        </div>
+
+        {% include 'main/footer.html' %}
+    </div>
+
+    <!-- Подключение Bootstrap JS (не обязательно, но полезно для интерактивных элементов) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
